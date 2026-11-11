@@ -2,14 +2,18 @@
 
 Name:		jgit
 Version:	7.2.1.202505142326.r
-Release:	1
+Release:	2
 Summary:	Pure Java implementation of Git
 Group:		Development/Java
 License:	BSD-3-Clause
 URL:		https://github.com/eclipse-jgit/jgit
 # Tag v7.2.1.202505142326-r. The archive is Java source. RPM Version
-# cannot contain the upstream hyphen; the POMs keep that hyphenated
-# string so the mvn() provides match the Gradle 9.9.1 strict pin.
+# cannot contain the upstream hyphen. The POMs keep that hyphenated
+# string. createrepo stores the hyphen as the release, so these dotted
+# provides are the versions the Gradle comparison can match.
+Provides:	mvn(org.eclipse.jgit:org.eclipse.jgit) = 7.2.1.202505142326.r
+Provides:	mvn(org.eclipse.jgit:org.eclipse.jgit.ssh.apache) = 7.2.1.202505142326.r
+Provides:	mvn(org.eclipse.jgit:org.eclipse.jgit.ssh.apache.agent) = 7.2.1.202505142326.r
 Source0:	https://github.com/eclipse-jgit/jgit/archive/refs/tags/v%{upver}.tar.gz#/jgit-%{upver}.tar.gz
 
 BuildArch:	noarch
